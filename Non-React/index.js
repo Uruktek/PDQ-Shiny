@@ -1,15 +1,24 @@
 //https://pokeapi.co/api/v2/pokemon/ditto
 
-const btn = document.querySelector("button"); //Looking for the button itself
-let searchUrlForPokemon = "https://pokeapi.co/api/v2/pokemon/"; //The basic url before adding anything from the text box.
-let pokemonNameForUrl = document.getElementById("lbl").textContent; //Getting the data from the text box of choice
+//const btn = document.querySelector("button"); //Looking for the button itself
+const searchUrlForPokemon = "https://pokeapi.co/api/v2/pokemon/"; //The basic url before adding anything from the text box.
 
 //Creating an event listner based on the click event of the button
-btn.addEventListener("click", function (event) {
-  //Checking to see if the textbox is empty before issuing a null search on the api
-  //   if (!pokemonNameForUrl) {
-  //     fetch(url)
-  //       .then((res) => res.json())
-  //       .then((out) => console.log("This is reporting json", out));
-  window.location.href = "result.html";
-});
+document.getElementById("button").addEventListener("click", btnClicked_Trigger);
+document
+  .getElementById("button")
+  .addEventListener("keypress", function (event) {
+    console.log("Clicked?");
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.getElementById("button").click();
+      console.log("clicked?");
+    }
+  });
+
+function btnClicked_Trigger() {
+  let pokemonNameForUrl = document.getElementById("pname").value;
+  console.log(pokemonNameForUrl);
+  let newUrl = searchUrlForPokemon + pokemonNameForUrl;
+  console.log(newUrl);
+}
