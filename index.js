@@ -46,15 +46,12 @@ async function jsonPokemonResult(customUrl) {
   // - CL 8/24/22
   let extractShinySprite = customJsonData["sprites"]["front_shiny"];
 
-  //Just sending it to console for the moment.  - CL 8/24/22
-  //console.log(extractShinySprite + " extractShinySprite result");
-
   //creating an img source to display crafted by the selection of the user. - CL 8/25/22
   let htmlImageSource = `<img src="${extractShinySprite}" width="500" height="600">`;
 
-  //FIXME: This works but has very little in regards to placement of the image.
-  // The ideal is to load another html page with the image or to clear the current html
-  // and either make the new page in js or have a template that can be loaded.
-  // for the time being this can work as a POC. - CL 8/25/22
+  //Rather than trying to clear the screen the new idea is going to
+  // be using the entire screen without needing to hide elements for the time being.
+  // that said the issue is going to be phones as their sizes are small.
+  // I'll POC this idea first and see what my thoughts are after that - CL 8/25/22
   document.body.insertAdjacentHTML("afterbegin", htmlImageSource);
 }
