@@ -49,10 +49,12 @@ async function jsonPokemonResult(customUrl) {
   //Just sending it to console for the moment.  - CL 8/24/22
   //console.log(extractShinySprite + " extractShinySprite result");
 
-  let htmlImageSource = `"<img src="${%s}`, extractShinySprite; //FIXME:
-  let htmlImageSourceSize = ` width="500" height="600">`;
+  //creating an img source to display crafted by the selection of the user. - CL 8/25/22
+  let htmlImageSource = `<img src="${extractShinySprite}" width="500" height="600">`;
 
-  console.log(htmlImageSource + htmlImageSourceSize);
-
-  //document.body.innerHTML(displayingImg);
+  //FIXME: This works but has very little in regards to placement of the image.
+  // The ideal is to load another html page with the image or to clear the current html
+  // and either make the new page in js or have a template that can be loaded.
+  // for the time being this can work as a POC. - CL 8/25/22
+  document.body.insertAdjacentHTML("afterbegin", htmlImageSource);
 }
