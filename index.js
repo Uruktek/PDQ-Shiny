@@ -47,5 +47,12 @@ async function jsonPokemonResult(customUrl) {
   let extractShinySprite = customJsonData["sprites"]["front_shiny"];
 
   //Just sending it to console for the moment.  - CL 8/24/22
-  console.log(extractShinySprite);
+  //console.log(extractShinySprite + " extractShinySprite result");
+
+  let htmlImageSource = `"<img src="${%s}`, extractShinySprite; //FIXME:
+  let htmlImageSourceSize = ` width="500" height="600">`;
+
+  console.log(htmlImageSource + htmlImageSourceSize);
+
+  //document.body.innerHTML(displayingImg);
 }
