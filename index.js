@@ -13,10 +13,28 @@ function btnClicked_Trigger() {
   jsonGet(newUrl).then((data) => {
     let extractShinySprite = data.sprites.front_shiny;
     let htmlImageSource = `<img src="${extractShinySprite}" width="500" height="600">`;
+    setPageBlank();
     document.body.insertAdjacentHTML("afterbegin", htmlImageSource);
+    refreshPage();
   });
 }
 async function jsonGet(url = "") {
   const response = await fetch(url);
   return response.json();
+}
+
+function setPageBlank() {
+  let lbl = document.getElementById("lbl");
+  let pname = document.getElementById("pname");
+  let button = document.getElementById("button");
+
+  lbl.parentNode.removeChild(lbl);
+  pname.parentNode.removeChild(pname);
+  button.parentNode.removeChild(button);
+}
+
+function refreshPage() {
+  setTimeout(function () {
+    location.reload();
+  }, 5000);
 }
