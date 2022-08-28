@@ -1,11 +1,13 @@
 const searchUrlForPokemon = "https://pokeapi.co/api/v2/pokemon/";
+
 document.getElementById("button").addEventListener("click", btnClicked_Trigger);
 document.getElementById("pname").addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
-    event.preventDefault();
+    //event.preventDefault();
     document.getElementById("button").click();
   }
 });
+
 function btnClicked_Trigger() {
   let pokemonNameForUrl = document.getElementById("pname").value;
   let newUrl = searchUrlForPokemon + pokemonNameForUrl;

@@ -21,6 +21,7 @@ body {
   background-color: #66ff99;
   font-family: 'Orbitron', sans-serif;
   cursor: pointer;
+  padding: 14px 28px;
 }
 #pname {
   background-color: #66ff99;
