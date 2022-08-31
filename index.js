@@ -13,6 +13,7 @@ document.getElementById("pname").addEventListener("keypress", function (event) {
 });
 
 function btnClicked_Trigger() {
+  //needs to be tolowercase due to iOS and passing cap of the name breaking the api. - CL
   let pokemonNameForUrl = document.getElementById("pname").value.toLowerCase();
   let newUrl = searchUrlForPokemon + pokemonNameForUrl;
 
