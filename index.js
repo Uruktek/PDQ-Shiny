@@ -1,6 +1,10 @@
 const searchUrlForPokemon = "https://pokeapi.co/api/v2/pokemon/";
 
-document.getElementById("button").addEventListener("click", btnClicked_Trigger);
+let touchEvent = "ontouchstart" in window ? "touchstart" : "click";
+document
+  .getElementById("button")
+  .addEventListener(touchEvent, btnClicked_Trigger);
+
 document.getElementById("pname").addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
     //event.preventDefault();
@@ -9,12 +13,12 @@ document.getElementById("pname").addEventListener("keypress", function (event) {
 });
 
 function btnClicked_Trigger() {
-  let pokemonNameForUrl = document.getElementById("pname").value;
+  let pokemonNameForUrl = document.getElementById("pname").value.toLowerCase();
   let newUrl = searchUrlForPokemon + pokemonNameForUrl;
 
   jsonGet(newUrl).then((data) => {
     let extractShinySprite = data.sprites.front_shiny;
-    let htmlImageSource = `<img src="${extractShinySprite}" width="500" height="600">`;
+    let htmlImageSource = `<img src="${extractShinySprite}" width="100" height="100">`;
     setPageBlank();
     document.body.insertAdjacentHTML("afterbegin", htmlImageSource);
     refreshPage();
