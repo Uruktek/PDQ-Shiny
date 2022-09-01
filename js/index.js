@@ -45,3 +45,9 @@ function refreshPage() {
     location.reload();
   }, 5000);
 }
+
+//Adding functionality for predictive text for the text box.
+function test() {
+  let thing = Names();
+  console.log(thing);
+}
